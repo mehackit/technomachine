@@ -16,15 +16,12 @@ Known oddities: FM bass uses randomly picked notes from the note step sequencer.
 
 ##Keyboard shortcuts
 
-1) triggers drum pattern 1
-2) triggers drum pattern 2
-3) triggers drum pattern 3
-4) triggers drum pattern 4
-a) toggles percussion drum on / off
-s) toggles kick drum on / off
-d) toggles hihat on / off
-f) toggles fm bass percussion on / off
-r) randomizes the note sequence
-x) toggles low freq kill switch on / off
+1-4: triggers drum pattern 1-4
+
+a,s,d,f: toggles drums on / off
+
+r: randomizes the note sequence
+
+x: toggles low freq kill switch on / off
 
 
