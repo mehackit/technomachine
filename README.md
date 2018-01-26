@@ -1,8 +1,10 @@
 # technomachine
 
-Requires Sonic Pi 2.11.1 (a version that supports receiving OSC messages) and Processing 3 (with OscP5 and ControlP5 libraries) in order to run. 
+Requires Sonic Pi 3.1 and Processing 3 (with OscP5 and ControlP5 libraries) in order to run. 
 
 Techno Machine is a simple synth app made with Sonic Pi and Processing. It includes 4 drum channels, patterns and kits, a synth with two oscillators and really simple filter and amplitude controls. The most fun part of it is the 8-step note sequencer! Just hit randomize and create new note sequences on fly!
+
+FYI: Sonic Pi uses localhost and port 4559 to listen to incoming OSC messages. Check that you have OSC receiving toggled on in Sonic Pi settings. Also, it's also good to note that Sonic Pi adds message prefix "/osc" to every received OSC message (this was added in version 3). 
 
 ##How to run it?
 
@@ -23,5 +25,4 @@ a,s,d,f: toggles drums on / off
 r: randomizes the note sequence
 
 x: toggles low freq kill switch on / off
-
 
