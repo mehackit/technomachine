@@ -1,12 +1,8 @@
-############################################################
-#  THE SONIC PI TECHNO MACHINE -- MADE BY MEHACKIT - 2017  #
-############################################################
+#  THE SONIC PI TECHNO MACHINE -- MADE BY MEHACKIT - 2018  #
+#  WORKS WITH SONIC PI 3.1.0 AND PROCESSING 3.3.6+ :----)  #
 
-# SET THE TEMPO OF YOUR LIVE SET HERE
-use_bpm 100
+use_bpm 100 # SET THE TEMPO OF YOUR LIVE SET HERE
 use_debug false
-
-# VARIABLES FOR THE INSTRUMENTS AND MIXER - CHANGED VIA OSC
 beat1Cutoff = 0
 beat1Vol = 1.0
 kickToggle = 0
@@ -58,7 +54,7 @@ with_fx :hpf, cutoff: 0, cutoff_slide: 0.5, amp: 1.5 do |lowKillSwitch|
       end
       
       live_loop :beat1OSC do
-        osc=sync "/drum1"
+        osc=sync "/osc/drum1"
         if (osc[0] == 0)
           if (osc[1] == 0)
             beat1Cutoff = 0
@@ -84,7 +80,7 @@ with_fx :hpf, cutoff: 0, cutoff_slide: 0.5, amp: 1.5 do |lowKillSwitch|
     end
     
     live_loop :drumReverbOSC do
-      osc=sync "/drumreverb"
+      osc=sync "/osc/drumreverb"
       drumReverb = osc[0]
       control drumReverbAmount, room: drumReverb, mix: drumReverb/2
     end
@@ -151,7 +147,7 @@ with_fx :hpf, cutoff: 0, cutoff_slide: 0.5, amp: 1.5 do |lowKillSwitch|
   ###############################################
   
   live_loop :kickdrumOSC do
-    osc=sync "/drum2"
+    osc=sync "/osc/drum2"
     if (osc[0] == 0)
       if (osc[1] == 0)
         kickToggle = 0
@@ -187,7 +183,7 @@ with_fx :hpf, cutoff: 0, cutoff_slide: 0.5, amp: 1.5 do |lowKillSwitch|
   end
   
   live_loop :hihatOSC do
-    osc=sync "/drum3"
+    osc=sync "/osc/drum3"
     if (osc[0] == 0)
       if (osc[1] == 0)
         hihatToggle = 0
@@ -204,7 +200,7 @@ with_fx :hpf, cutoff: 0, cutoff_slide: 0.5, amp: 1.5 do |lowKillSwitch|
   end
   
   live_loop :percOSC do
-    osc=sync "/drum4"
+    osc=sync "/osc/drum4"
     if (osc[0] == 0)
       if (osc[1] == 0)
         percToggle = 0
@@ -219,7 +215,7 @@ with_fx :hpf, cutoff: 0, cutoff_slide: 0.5, amp: 1.5 do |lowKillSwitch|
   end
   
   live_loop :synthOSC do
-    osc=sync "/synth"
+    osc=sync "/osc/synth"
     if (osc[0] == 0)
       synthCutoff = osc[1]
     elsif (osc[0] == 1)
@@ -240,7 +236,7 @@ with_fx :hpf, cutoff: 0, cutoff_slide: 0.5, amp: 1.5 do |lowKillSwitch|
   end
   
   live_loop :waveform1OSC do
-    osc=sync "/waveform1"
+    osc=sync "/osc/waveform1"
     if (osc[0] == 0)
       synthWaveform = :tb303
     elsif (osc[0] == 1)
@@ -253,7 +249,7 @@ with_fx :hpf, cutoff: 0, cutoff_slide: 0.5, amp: 1.5 do |lowKillSwitch|
   end
   
   live_loop :waveform2OSC do
-    osc=sync "/waveform2"
+    osc=sync "/osc/waveform2"
     if (osc[0] == 0)
       synth2Waveform = :saw
     elsif (osc[0] == 1)
@@ -264,7 +260,7 @@ with_fx :hpf, cutoff: 0, cutoff_slide: 0.5, amp: 1.5 do |lowKillSwitch|
   end
   
   live_loop :drumPatternOSC do
-    osc=sync "/pattern"
+    osc=sync "/osc/pattern"
     if (osc[0] == 0)
       kickPattern = [1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0]
       hihatPattern = [rrand(0.6, 0.9), 1, 0.8, 1, 1, 1, rrand(0.6, 0.9), 1, 1, rrand(0.6, 0.9), 1, rrand(0.6, 0.9), 1, 1, 1, 1]
@@ -281,39 +277,39 @@ with_fx :hpf, cutoff: 0, cutoff_slide: 0.5, amp: 1.5 do |lowKillSwitch|
   end
   
   live_loop :note1OSC do
-    osc1=sync "/note1"
+    osc1=sync "/osc/note1"
     nuotit[0] = osc1[0]
   end
   live_loop :note2OSC do
-    osc2=sync "/note2"
+    osc2=sync "/osc/note2"
     nuotit[1] = osc2[0]
   end
   live_loop :note3OSC do
-    osc3=sync "/note3"
+    osc3=sync "/osc/note3"
     nuotit[2] = osc3[0]
   end
   live_loop :note4OSC do
-    osc4=sync "/note4"
+    osc4=sync "/osc/note4"
     nuotit[3] = osc4[0]
   end
   live_loop :note5OSC do
-    osc5=sync "/note5"
+    osc5=sync "/osc/note5"
     nuotit[4] = osc5[0]
   end
   live_loop :note6OSC do
-    osc6=sync "/note6"
+    osc6=sync "/osc/note6"
     nuotit[5] = osc6[0]
   end
   live_loop :note7OSC do
-    osc7=sync "/note7"
+    osc7=sync "/osc/note7"
     nuotit[6] = osc7[0]
   end
   live_loop :note8OSC do
-    osc8=sync "/note8"
+    osc8=sync "/osc/note8"
     nuotit[7] = osc8[0]
   end
   live_loop :lowKillOSC do
-    osc=sync "/lowkill"
+    osc=sync "/osc/lowkill"
     if (osc[0] == 0)
       lowKill = 0
     elsif (osc[0] == 1)

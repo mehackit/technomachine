@@ -1,6 +1,6 @@
 # Blender v2.76 (sub 0) OBJ File: 'mehackit_logo.blend'
 # www.blender.org
-mtllib mehackit_4.mtl
+mtllib mehackit.mtl
 o Plane.001
 v -3.766659 1.003003 -0.263341
 v 3.766659 1.003003 -0.263341
