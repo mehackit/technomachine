@@ -6,6 +6,8 @@
 
 2018-01-26 - Updated Techno Machine to work with Sonic Pi 3.1
 
+2017-01-19 - Techno Machine v1.0 for Sonic Pi and Processing
+
 ## Description
 
 Requires Sonic Pi 3.1 and Processing 3 (with OscP5 and ControlP5 libraries) in order to run. 
