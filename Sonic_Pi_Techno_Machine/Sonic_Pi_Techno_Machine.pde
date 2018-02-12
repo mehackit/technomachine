@@ -1,5 +1,6 @@
 /*   The Sonic Pi Techno Machine - By Mehackit                                          *
  *   If you have any questions / feedback about it, please contact tommi@mehackit.org   */
+//Additions added by Robin Newman to zero Sequencer (T), clear drums (G) and clear all (G)
 
 import oscP5.*;                   // Please install OscP5 and ControlP5 libraries from
 import netP5.*;                   // the menu Sketch / Import Library / Add Library... 
@@ -142,6 +143,12 @@ void keyPressed() {
     sendOscMessage("pattern", 3);
   } else if (key == 'R' || key == 'r') {
     randomizer();
+  } else if (key == 'T' || key == 't') {
+    randomizerZero();
+  } else if (key == 'Y' || key == 'y') {
+    allOff();
+  } else if (key == 'G' || key == 'g') {
+    dOff();
   }
   
   if (t != null && t.getValue() == 1.0) {
@@ -210,8 +217,14 @@ void setupUIElements() {
   .activate(0).setNoneSelectedAllowed(false);
   
   // Randomizer Button     
-  cp5.addButton("randomizer").setPosition(650,180).setSize(130,20).setLabel("Randomize (R)");
-  
+  cp5.addButton("randomizer").setPosition(670,180).setSize(110,20).setLabel("Randomize (R)");
+  // Randomizer Zero Button
+  cp5.addButton("randomizerZero").setPosition(598,180).setSize(72,20).setLabel("Zero (T)");
+  //dOff Button  
+  cp5.addButton("dOff").setPosition(30,265).setSize(41,41).setLabel("G");
+  //allOff Button  
+  cp5.addButton("allOff").setPosition(30,200).setSize(41,41).setLabel("Y");
+
   // Note Sequencer Sliders
   cp5.addSlider("note1Slider").setPosition(400,210).setSize(20,200).setRange(0,90).setValue(0).setLabel(" 1");
   cp5.addSlider("note2Slider").setPosition(450,210).setSize(20,200).setRange(0,90).setValue(0).setLabel(" 2");
@@ -233,6 +246,8 @@ void setupUIElements() {
   cp5.addTextlabel("label7").setText("DRUM PATTERNS").setPosition(5,415).setFont(font2);
   cp5.addTextlabel("label8").setText("LOW KILL").setPosition(20,385).setFont(font1);
   cp5.addTextlabel("label9").setText("DRUM KIT SELECTOR").setPosition(216,385).setFont(font1);
+    cp5.addTextlabel("label10").setText("ALL OFF").setPosition(24,245).setFont(font1);
+  cp5.addTextlabel("label11").setText("DRUMS OFF").setPosition(12,310).setFont(font1);
       
 }
 
@@ -398,6 +413,36 @@ void randomizer() {
   cp5.getController("note6Slider").setValue((int)random(0,90));
   cp5.getController("note7Slider").setValue((int)random(0,90));
   cp5.getController("note8Slider").setValue((int)random(0,90));
+}
+
+void randomizerZero() {
+  if (debugMessages) println("RANDOMIZERzero!");
+  cp5.getController("note1Slider").setValue(0);
+  cp5.getController("note2Slider").setValue(0);
+  cp5.getController("note3Slider").setValue(0);
+  cp5.getController("note4Slider").setValue(0);
+  cp5.getController("note5Slider").setValue(0);
+  cp5.getController("note6Slider").setValue(0);
+  cp5.getController("note7Slider").setValue(0);
+  cp5.getController("note8Slider").setValue(0);
+}
+
+void dOff(){
+  if (debugMessages) println("dOFF!");
+    a.setValue(false);
+    beatA(false);
+    s.setValue(false);
+    beatB(false);
+    d.setValue(false);
+    beatC(false);
+    f.setValue(false);
+    beatD(false);
+}
+  
+void allOff() {
+  if (debugMessages) println("AllOFF!");
+    dOff();
+    randomizerZero();
 }
 
 void note1Slider(int theValue) {
