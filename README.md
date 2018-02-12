@@ -32,13 +32,13 @@ Known oddities: FM bass uses randomly picked notes from the note step sequencer.
 
 a,s,d,f: toggles drums on / off
 
-g: all drums off
+g: switches all drum toggles off
 
 r: randomizes the note sequence
 
-t: all notes off (zero value)
+t: all notes off (gives zero values to the sequencer notes)
 
-y: all off (sequencer notes and drums)
+y: switches all drum toggles off and zeros the note sequence. (no sounds)
 
 x: toggles low freq kill switch on / off
 
