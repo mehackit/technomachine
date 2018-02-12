@@ -3,6 +3,7 @@
 *Updates*
 
 2018-02-12 - [Robin Newman](https://twitter.com/rbnman) contributed new features (zero all notes, drums off and all off)
+
 2018-01-26 - Updated Techno Machine to work with Sonic Pi 3.1
 
 ## Description
